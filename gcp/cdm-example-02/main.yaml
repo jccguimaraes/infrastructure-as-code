@@ -1,0 +1,11 @@
+resources:
+- name: my-vpc
+  type: compute.v1.network
+  properties:
+    autoCreateSubnetworks: false
+- name: my-subnet
+  type: compute.v1.subnetwork
+  properties:
+    region: europe-west3
+    ipCidrRange: 10.2.0.0/16
+    network: $(ref.my-vpc.selfLink)

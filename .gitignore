@@ -1,0 +1,6 @@
+creds/*
+.terraform
+**/*.tfstate
+**/*.tfstate.backup
+**/*.lock.info
+**/.DS_Store
