@@ -1,12 +1,12 @@
 {
   "resources": [
     {
-      "name": "my-subnet",
+      "name": "my_subnet",
       "type": "compute.v1.subnetwork",
       "properties": {
         "region": "europe-west3",
         "ipCidrRange": "10.2.0.0/16",
-        "network": "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc"
+        "network": "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc"
       }
     }
   ]

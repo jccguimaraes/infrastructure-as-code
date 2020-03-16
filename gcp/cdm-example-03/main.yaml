@@ -1,0 +1,9 @@
+imports:
+- path: template-subnet.py
+
+resources:
+- name: my_subnet
+  type: template-subnet.py
+  properties:
+    region: europe-west3
+    ipCidrRange: 10.2.0.0/16

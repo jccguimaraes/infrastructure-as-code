@@ -7,4 +7,4 @@ Resources:
       CidrBlock: 10.1.0.0/16
       Tags:
         - Key: "Name"
-          Value: "my-vpc-cf2"
+          Value: "my_vpc-cf2"

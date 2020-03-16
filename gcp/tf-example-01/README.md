@@ -1,6 +1,6 @@
 # Terraform Google - Step 1
 
-This iteration consists on adding a subnetwork `my-subnet` to an already existing vpc `my-vpc`.
+This iteration consists on adding a subnetwork `my_subnet` to an already existing vpc `my_vpc`.
 
 This VPC network was created through the GCP console as per the following images.
 
@@ -8,7 +8,7 @@ On the left menu go to `VPC network` and click on the `Create VPC network`.
 
 ![step-1][step-1]
 
-Add `my-vpc` as the name and leave the rest as per the next image.
+Add `my_vpc` as the name and leave the rest as per the next image.
 
 ![step-1][step-2]
 
@@ -53,10 +53,10 @@ provider "google" {}
 
 data "google_project" "project" {}
 
-resource "google_compute_subnetwork" "my-subnet" {
-  name          = "my-subnet"
+resource "google_compute_subnetwork" "my_subnet" {
+  name          = "my_subnet"
   ip_cidr_range = "10.2.0.0/16"
-  network       = "https://www.googleapis.com/compute/v1/projects/${data.google_project.project.project_id}/global/networks/my-vpc"
+  network       = "https://www.googleapis.com/compute/v1/projects/${data.google_project.project.project_id}/global/networks/my_vpc"
 }
 ```
 
@@ -110,16 +110,16 @@ Resource actions are indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # google_compute_subnetwork.my-subnet will be created
-  + resource "google_compute_subnetwork" "my-subnet" {
+  # google_compute_subnetwork.my_subnet will be created
+  + resource "google_compute_subnetwork" "my_subnet" {
       + creation_timestamp = (known after apply)
       + enable_flow_logs   = (known after apply)
       + fingerprint        = (known after apply)
       + gateway_address    = (known after apply)
       + id                 = (known after apply)
       + ip_cidr_range      = "10.2.0.0/16"
-      + name               = "my-subnet"
-      + network            = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc"
+      + name               = "my_subnet"
+      + network            = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc"
       + project            = (known after apply)
       + region             = (known after apply)
       + secondary_ip_range = (known after apply)
@@ -135,7 +135,7 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 </pre>
 
-We hardcoded the name of the vpc that we created before. Next we do `terraform apply` to apply the plan and deploy the subnetwork into `my-vpc`.
+We hardcoded the name of the vpc that we created before. Next we do `terraform apply` to apply the plan and deploy the subnetwork into `my_vpc`.
 
 <pre>
 data.google_project.project: Refreshing state...
@@ -146,16 +146,16 @@ Resource actions are indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # google_compute_subnetwork.my-subnet will be created
-  + resource "google_compute_subnetwork" "my-subnet" {
+  # google_compute_subnetwork.my_subnet will be created
+  + resource "google_compute_subnetwork" "my_subnet" {
       + creation_timestamp = (known after apply)
       + enable_flow_logs   = (known after apply)
       + fingerprint        = (known after apply)
       + gateway_address    = (known after apply)
       + id                 = (known after apply)
       + ip_cidr_range      = "10.2.0.0/16"
-      + name               = "my-subnet"
-      + network            = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc"
+      + name               = "my_subnet"
+      + network            = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc"
       + project            = (known after apply)
       + region             = (known after apply)
       + secondary_ip_range = (known after apply)
@@ -170,9 +170,9 @@ Do you want to perform these actions?
 
   Enter a value: yes
 
-google_compute_subnetwork.my-subnet: Creating...
-google_compute_subnetwork.my-subnet: Still creating... [10s elapsed]
-google_compute_subnetwork.my-subnet: Creation complete after 18s [id=projects/personal-265109/regions/europe-west3/subnetworks/my-subnet]
+google_compute_subnetwork.my_subnet: Creating...
+google_compute_subnetwork.my_subnet: Still creating... [10s elapsed]
+google_compute_subnetwork.my_subnet: Creation complete after 18s [id=projects/personal-265109/regions/europe-west3/subnetworks/my_subnet]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
@@ -184,7 +184,7 @@ use the `terraform show` command.
 State path: state/terraform.tfstate
 </pre>
 
-As seen on the console, the `my-subnet` was created under the `my-vpc`.
+As seen on the console, the `my_subnet` was created under the `my_vpc`.
 
 ![step-5][step-5]
 
@@ -192,7 +192,7 @@ You can clean up these changes by running `terraform destroy`:
 
 <pre>
 data.google_project.project: Refreshing state...
-google_compute_subnetwork.my-subnet: Refreshing state... [id=projects/personal-265109/regions/europe-west3/subnetworks/my-subnet]
+google_compute_subnetwork.my_subnet: Refreshing state... [id=projects/personal-265109/regions/europe-west3/subnetworks/my_subnet]
 
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
@@ -200,19 +200,19 @@ Resource actions are indicated with the following symbols:
 
 Terraform will perform the following actions:
 
-  # google_compute_subnetwork.my-subnet will be destroyed
-  - resource "google_compute_subnetwork" "my-subnet" {
+  # google_compute_subnetwork.my_subnet will be destroyed
+  - resource "google_compute_subnetwork" "my_subnet" {
       - creation_timestamp       = "2020-03-14T10:12:29.047-07:00" -> null
       - gateway_address          = "10.2.0.1" -> null
-      - id                       = "projects/personal-265109/regions/europe-west3/subnetworks/my-subnet" -> null
+      - id                       = "projects/personal-265109/regions/europe-west3/subnetworks/my_subnet" -> null
       - ip_cidr_range            = "10.2.0.0/16" -> null
-      - name                     = "my-subnet" -> null
-      - network                  = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc" -> null
+      - name                     = "my_subnet" -> null
+      - network                  = "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc" -> null
       - private_ip_google_access = false -> null
       - project                  = "personal-265109" -> null
       - region                   = "europe-west3" -> null
       - secondary_ip_range       = [] -> null
-      - self_link                = "https://www.googleapis.com/compute/v1/projects/personal-265109/regions/europe-west3/subnetworks/my-subnet" -> null
+      - self_link                = "https://www.googleapis.com/compute/v1/projects/personal-265109/regions/europe-west3/subnetworks/my_subnet" -> null
     }
 
 Plan: 0 to add, 0 to change, 1 to destroy.
@@ -223,9 +223,9 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 
-google_compute_subnetwork.my-subnet: Destroying... [id=projects/personal-265109/regions/europe-west3/subnetworks/my-subnet]
-google_compute_subnetwork.my-subnet: Still destroying... [id=projects/personal-265109/regions/europe-west3/subnetworks/my-subnet, 10s elapsed]
-google_compute_subnetwork.my-subnet: Destruction complete after 18s
+google_compute_subnetwork.my_subnet: Destroying... [id=projects/personal-265109/regions/europe-west3/subnetworks/my_subnet]
+google_compute_subnetwork.my_subnet: Still destroying... [id=projects/personal-265109/regions/europe-west3/subnetworks/my_subnet, 10s elapsed]
+google_compute_subnetwork.my_subnet: Destruction complete after 18s
 
 Destroy complete! Resources: 1 destroyed.
 </pre>

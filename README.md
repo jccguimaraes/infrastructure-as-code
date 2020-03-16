@@ -40,10 +40,10 @@ provider "google" {}                              provider "aws" {
                                                     profile = var.gcp-profile
                                                   }
 
-resource "google_compute_network" "my-vpc" {      resource "aws_vpc" "my-vpc" {
-  name                    = "my-vpc-tf"             cidr_block = "10.0.0.0/16"
+resource "google_compute_network" "my_vpc" {      resource "aws_vpc" "my_vpc" {
+  name                    = "my_vpc-tf"             cidr_block = "10.0.0.0/16"
   auto_create_subnetworks = false                   tags = {
-}                                                     Name = "my-vpc-tf"
+}                                                     Name = "my_vpc-tf"
                                                     }
                                                   }
 ```
@@ -157,7 +157,7 @@ Consider the following example:
 provider "google" {}
 
 resource "google_compute_network" "vpc_network" {
-  name                    = "my-vpc-tf"
+  name                    = "my_vpc-tf"
   auto_create_subnetworks = false
 }
 ```
@@ -177,7 +177,7 @@ export GOOGLE_ZONE=desired-zone
 >
 > Forbidden error example: 
 >
-> `Error: Error creating Network: googleapi: Error 403: Required 'compute.networks.create' permission for 'projects/my-project-id/global/networks/my-vpc-tf', forbidden ...`
+> `Error: Error creating Network: googleapi: Error 403: Required 'compute.networks.create' permission for 'projects/my-project-id/global/networks/my_vpc-tf', forbidden ...`
 
 Running the `terraform plan` will print the following result:
 ```sh
@@ -190,13 +190,13 @@ Resource actions are indicated with the following symbols:
 Terraform will perform the following actions:
 
   # google_compute_network.vpc_network will be created
-  + resource "google_compute_network" "my-vpc" {
+  + resource "google_compute_network" "my_vpc" {
       + auto_create_subnetworks         = false
       + delete_default_routes_on_create = false
       + gateway_ipv4                    = (known after apply)
       + id                              = (known after apply)
       + ipv4_range                      = (known after apply)
-      + name                            = "my-vpc-tf"
+      + name                            = "my_vpc-tf"
       + project                         = (known after apply)
       + routing_mode                    = (known after apply)
       + self_link                       = (known after apply)

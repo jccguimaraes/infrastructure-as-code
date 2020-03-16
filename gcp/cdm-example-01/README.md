@@ -1,6 +1,6 @@
 # Google Cloud Platform - Cloud Development Manager - Step 1
 
-This iteration consists on adding a subnetwork `my-subnet` to an already existing vpc `my-vpc`.
+This iteration consists on adding a subnetwork `my_subnet` to an already existing vpc `my_vpc`.
 
 This VPC network was created through the GCP console as per the following images.
 
@@ -8,7 +8,7 @@ On the left menu go to `VPC network` and click on the `Create VPC network`.
 
 ![step-1][step-1]
 
-Add `my-vpc` as the name and leave the rest as per the next image.
+Add `my_vpc` as the name and leave the rest as per the next image.
 
 ![step-1][step-2]
 
@@ -58,7 +58,7 @@ Your active configuration is: [default]
 > Waiting for create [operation-1584231360600-5a0d99b7d987a-6102a252-fa0a163c]...failed.
 > ERROR: (gcloud.deployment-manager.deployments.create) Error in Operation [operation-1584231360600-5a0d99b7d987a-6102a252-fa0a163c]: errors:
 > - code: RESOURCE_ERROR
->   location: /deployments/deployment-demo-1/resources/my-subnet
+>   location: /deployments/deployment-demo-1/resources/my_subnet
 >   message: '{"ResourceType":"compute.v1.subnetwork","ResourceErrorCode":"404","ResourceErrorMessage":{"code":404,"message":"Requested
 >     entity was not found.","status":"NOT_FOUND","statusMessage":"Not Found","requestPath":"https://compute.googleapis.com/compute/v1/projects/personal-265109/regions/europe-
 > west3/subnetworks","httpMethod":"POST"}}'
@@ -68,12 +68,12 @@ This demo has the following Deployment Manager configuration:
 
 ```yaml
 resources:
-- name: my-subnet
+- name: my_subnet
   type: compute.v1.subnetwork
   properties:
     region: europe-west3
     ipCidrRange: 10.2.0.0/16
-    network: "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc"
+    network: "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc"
 ```
 
 or the JSON alternative:
@@ -82,12 +82,12 @@ or the JSON alternative:
 {
   "resources": [
     {
-      "name": "my-subnet",
+      "name": "my_subnet",
       "type": "compute.v1.subnetwork",
       "properties": {
         "region": "europe-west3",
         "ipCidrRange": "10.2.0.0/16",
-        "network": "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my-vpc"
+        "network": "https://www.googleapis.com/compute/v1/projects/personal-265109/global/networks/my_vpc"
       }
     }
   ]
@@ -115,7 +115,7 @@ The fingerprint of the deployment is 8eHnt6HjwuvGjjCWSJ6lUw==
 Waiting for create [operation-1584231636887-5a0d9abf56845-1b42dc3d-4f3dab24]...done.  
 Create operation operation-1584231636887-5a0d9abf56845-1b42dc3d-4f3dab24 completed successfully.
 NAME       TYPE                   STATE       ERRORS  INTENT
-my-subnet  compute.v1.subnetwork  IN_PREVIEW  []      CREATE_OR_ACQUIRE
+my_subnet  compute.v1.subnetwork  IN_PREVIEW  []      CREATE_OR_ACQUIRE
 </pre>
 
 This means that it will try to `create` or `acquire` if the resource does not exists already. In this case will the first case.
@@ -135,14 +135,14 @@ The fingerprint of the deployment is 6JmkucS5_f5KduZpgPUtHw==
 Waiting for update [operation-1584231859017-5a0d9b932d572-07742ec7-158ffca3]...done.
 Update operation operation-1584231859017-5a0d9b932d572-07742ec7-158ffca3 completed successfully.
 NAME       TYPE                   STATE      ERRORS  INTENT
-my-subnet  compute.v1.subnetwork  COMPLETED  []
+my_subnet  compute.v1.subnetwork  COMPLETED  []
 </pre>
 
 ![step-5][step-5]
 ![step-7][step-7]
 ![step-8][step-8]
 
-Destroying the `my-subnet` is easy as simply deleting the deployment itself.
+Destroying the `my_subnet` is easy as simply deleting the deployment itself.
 
 ```bash
 gcloud deployment-manager deployments delete cdm-example-01
