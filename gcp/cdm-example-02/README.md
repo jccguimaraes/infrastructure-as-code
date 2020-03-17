@@ -6,11 +6,11 @@ This demo has the following Deployment Manager configuration:
 
 ```yaml
 resources:
-- name: my_vpc
+- name: my-vpc
   type: compute.v1.network
   properties:
     autoCreateSubnetworks: false
-- name: my_subnet
+- name: my-subnet
   type: compute.v1.subnetwork
   properties:
     region: europe-west3

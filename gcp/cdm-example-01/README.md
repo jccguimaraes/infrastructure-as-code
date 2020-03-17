@@ -68,7 +68,7 @@ This demo has the following Deployment Manager configuration:
 
 ```yaml
 resources:
-- name: my_subnet
+- name: my-subnet
   type: compute.v1.subnetwork
   properties:
     region: europe-west3
