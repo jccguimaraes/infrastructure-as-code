@@ -4,3 +4,4 @@ creds/*
 **/*.tfstate.backup
 **/*.lock.info
 **/.DS_Store
+node_modules

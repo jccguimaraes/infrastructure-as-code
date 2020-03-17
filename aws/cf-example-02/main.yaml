@@ -1,0 +1,19 @@
+# yaml syntax
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  Macro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: CreateVPC
+      FunctionName:
+        Fn::GetAtt:
+        - MyFunction
+        - Arn
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src
+      Handler: index.handler
+      Runtime: nodejs12.x

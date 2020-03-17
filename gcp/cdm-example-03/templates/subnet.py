@@ -2,12 +2,12 @@ from templates import utils # pylint: disable=import-error
 
 region = 'europe-west3'
 ipCidrRange =  '10.2.0.0/16'
-network = 'my-vpc'
 
 def GenerateConfig(context):
-    print('hi')
+    network = context.env['name']
+
     resources = [{
-        'name': context.env['name'],
+        'name': network,
         'type': 'compute.v1.subnetwork',
         'properties': {
             'region': region,

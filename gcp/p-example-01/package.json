@@ -1,0 +1,13 @@
+{
+  "name": "p-example-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pulumi/gcp": "^2.9.0"
+  }
+}

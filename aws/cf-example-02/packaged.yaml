@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Macro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: CreateVPC
+      FunctionName:
+        Fn::GetAtt:
+        - MyFunction
+        - Arn
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://io.yld.cf.joao/b1aa42e11ace4d98cd764e7589a3ee3b
+      Handler: index.handler
+      Runtime: nodejs12.x
